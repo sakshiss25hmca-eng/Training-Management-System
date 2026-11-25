@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tata Steel Certificate</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#d9d9d9;
+    font-family:"Times New Roman", serif;
+    padding:25px;
+}
+
+.certificate{
+
+    width:1120px;
+    min-height:790px;
+    margin:auto;
+    background:#fffdf5;
+    border:10px solid #444;
+    position:relative;
+    padding:35px 55px;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+}
+
+.certificate::before{
+
+    content:"";
+    position:absolute;
+    top:15px;
+    left:15px;
+    right:15px;
+    bottom:15px;
+    border:2px solid #555;
+
+}
+
+.header{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    z-index:2;
+    text-align:center;
+
+}
+
+.center{
+
+    text-align:center;
+    width:100%;
+
+}
+
+.center h1{
+
+    font-size:34px;
+    color:#003b75;
+    margin-bottom:8px;
+
+}
+
+.center h2{
+
+    font-size:28px;
+    margin-bottom:6px;
+
+}
+
+.center h3{
+
+    font-size:18px;
+    font-weight:normal;
+    margin-bottom:20px;
+
+}
+
+.title{
+
+    font-size:44px;
+    letter-spacing:4px;
+    font-weight:bold;
+
+}
+
+.line{
+
+    width:180px;
+    height:2px;
+    background:#000;
+    margin:15px auto;
+
+}
+
+.content{
+
+    margin-top:45px;
+    text-align:center;
+    position:relative;
+    z-index:2;
+
+}
+
+.content p{
+
+    font-size:22px;
+    line-height:1.8;
+
+}
+
+.name{
+
+    font-size:36px;
+    color:#003b75;
+    font-weight:bold;
+    text-decoration:underline;
+    margin:20px 0;
+
+}
+
+.details{
+
+    width:100%;
+    margin-top:40px;
+    border-collapse:collapse;
+    font-size:20px;
+
+}
+
+.details td{
+
+    border:2px solid #444;
+    padding:14px;
+
+}
+
+.details td:first-child{
+
+    width:30%;
+    font-weight:bold;
+    background:#f7f3e8;
+
+}
+
+.footer{
+
+    margin-top:60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    position:relative;
+    z-index:2;
+
+}
+
+.left p{
+
+    font-size:20px;
+    margin:10px 0;
+
+}
+
+.signature{
+
+    text-align:center;
+
+}
+
+.signature hr{
+
+    width:220px;
+    border:1px solid black;
+    margin-bottom:10px;
+
+}
+
+.signature p{
+
+    font-size:20px;
+    font-weight:bold;
+
+}
+
+button{
+
+    display:block;
+    margin:30px auto;
+    padding:12px 30px;
+    background:#00539f;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:18px;
+
+}
+
+button:hover{
+
+    background:#003b75;
+
+}
+
+@media print{
+
+button{
+display:none;
+}
+
+body{
+background:white;
+padding:0;
+}
+
+.certificate{
+
+width:100%;
+margin:0;
+box-shadow:none;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="certificate">
+
+<div class="header">
+
+<div class="center">
+
+<h1>PRASHIKSHAN - 2026</h1>
+
+<h2>SHAVAK NANAVATI TECHNICAL INSTITUTE</h2>
+
+<h3>An ISO 9001 : 2015 Organization</h3>
+
+<div class="line"></div>
+
+<div class="title">
+CERTIFICATE
+</div>
+
+<div class="line"></div>
+
+</div>
+
+</div>
+
+<div class="content">
+
+<p>This is to certify that</p>
+
+<div id="traineeName" class="name">
+Trainee Name
+</div>
+
+<p>
+has successfully completed the assigned project under
+<b>Tata Steel Limited</b>.
+</p>
+
+<p>
+The candidate has demonstrated dedication, commitment and
+successfully fulfilled all the requirements of the training programme.
+</p>
+
+</div>
+
+<table class="details">
+
+<tr>
+<td>Project Title</td>
+<td id="taskTitle"></td>
+</tr>
+
+<tr>
+<td>Assigned By</td>
+<td id="trainerName"></td>
+</tr>
+
+<tr>
+<td>Completion Date</td>
+<td id="date"></td>
+</tr>
+
+<tr>
+<td>Department</td>
+<td>Information Technology</td>
+</tr>
+
+</table>
+
+<div class="footer">
+
+<div class="left">
+
+<p><b>Place :</b> Khopoli</p>
+
+<p><b>Date :</b> <span id="footerDate"></span></p>
+
+</div>
+
+<div class="signature">
+
+<hr>
+
+<p>Training Manager</p>
+
+</div>
+
+</div>
+
+</div>
+
+<button onclick="window.print()">
+🖨 Download Certificate
+</button>
+
+<script type="module" src="certificate.js"></script>
+
+</body>
+</html>

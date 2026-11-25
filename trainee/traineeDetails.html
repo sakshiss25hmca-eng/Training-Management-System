@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Trainee Details</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6f9;
+padding:25px;
+}
+
+h1{
+color:#00539f;
+margin-bottom:20px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,.2);
+}
+
+th{
+background:#00539f;
+color:white;
+padding:14px;
+}
+
+td{
+padding:12px;
+border-bottom:1px solid #ddd;
+text-align:center;
+}
+
+.status{
+color:white;
+padding:6px 12px;
+border-radius:20px;
+}
+
+.pending{
+background:#ff9800;
+}
+
+.submitted{
+background:#2196f3;
+}
+
+.completed{
+background:#28a745;
+}
+
+button{
+
+background:#00539f;
+color:white;
+border:none;
+padding:8px 15px;
+border-radius:5px;
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#003f7f;
+
+}
+
+a{
+
+text-decoration:none;
+color:#00539f;
+font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1 id="title">Trainee Details</h1>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Task</th>
+
+<th>Status</th>
+
+<th>Progress</th>
+
+<th>Assigned By</th>
+
+<th>Certificate</th>
+
+<th>Work Description</th>
+
+<th>Submitted File</th>
+
+<th>Submitted Date</th>
+
+</tr>
+
+</thead>
+
+<tbody id="detailsTable">
+
+</tbody>
+
+</table>
+
+<script type="module" src="traineeDetails.js"></script>
+
+</body>
+
+</html>

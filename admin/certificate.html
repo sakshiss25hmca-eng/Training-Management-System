@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Certificate Management</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#f4f7fb;
+padding:40px;
+}
+
+h1{
+text-align:center;
+color:#003366;
+margin-bottom:40px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+border-radius:12px;
+overflow:hidden;
+}
+
+th{
+background:#003366;
+color:white;
+padding:15px;
+}
+
+td{
+padding:15px;
+text-align:center;
+border-bottom:1px solid #eee;
+}
+
+button{
+padding:10px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+color:white;
+margin:3px;
+}
+
+.training{
+background:#007bff;
+}
+
+.internship{
+background:#28a745;
+}
+
+.not{
+background:#999;
+cursor:not-allowed;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Certificate Management</h1>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Training</th>
+
+<th>Internship</th>
+
+<th>Certificates</th>
+
+</tr>
+
+</thead>
+
+<tbody id="certificateTable">
+
+</tbody>
+
+</table>
+
+<script type="module" src="certificate.js"></script>
+
+</body>
+</html>

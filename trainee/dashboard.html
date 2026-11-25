@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Trainee Dashboard</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+/* Header */
+
+header{
+    background:#00539f;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:32px;
+}
+
+header p{
+    margin-top:8px;
+    font-size:18px;
+}
+
+#clock{
+    margin-top:10px;
+    font-size:16px;
+    font-weight:bold;
+}
+
+/* Welcome */
+
+.welcome{
+    width:95%;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
+.welcome h2{
+    color:#00539f;
+    margin-bottom:10px;
+}
+
+.welcome p{
+    color:#555;
+}
+
+/* Statistics */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    width:95%;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+    transition:.3s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    background:#eef6ff;
+}
+
+.card h2{
+    color:#00539f;
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#666;
+}
+
+/* Search */
+
+.search-box{
+    width:95%;
+    margin:25px auto;
+}
+
+.search-box input{
+    width:100%;
+    padding:14px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+
+/* Table */
+
+.table-container{
+    width:95%;
+    margin:auto;
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
+th{
+    background:#00539f;
+    color:white;
+    padding:15px;
+}
+
+td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+.status{
+    color:white;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:14px;
+}
+
+.pending{
+    background:#ff9800;
+}
+
+.submitted{
+    background:#2196f3;
+}
+
+.completed{
+    background:#28a745;
+}
+
+textarea{
+    width:220px;
+    height:70px;
+    resize:none;
+    padding:8px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+input[type=file]{
+    width:220px;
+    margin-top:10px;
+}
+
+button{
+    margin-top:10px;
+    background:#00539f;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#003f7f;
+}
+
+.quote{
+    width:95%;
+    margin:30px auto;
+    background:#fff9d8;
+    padding:20px;
+    border-left:6px solid orange;
+    border-radius:8px;
+    text-align:center;
+    font-size:18px;
+}
+<div style="text-align:center;margin:25px;">
+
+<button
+id="certificateBtn"
+style="display:none;background:#28a745;"
+onclick="downloadCertificate()">
+
+🎓 Download Certificate
+
+</button>
+
+</div>
+footer{
+    text-align:center;
+    color:#666;
+    padding:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🎓 Trainee Dashboard</h1>
+
+<p id="welcomeText">
+Welcome Back 👋
+</p>
+
+<div id="clock"></div>
+
+</header>
+
+<div class="welcome">
+
+<h2>
+Welcome,
+<span id="traineeName">Trainee</span>
+👋
+</h2>
+
+<p>
+Complete your assigned tasks before the due date.
+</p>
+
+</div>
+
+<div class="stats">
+
+<div class="card" onclick="showTrainees()">
+<h2 id="totalTrainees">0</h2>
+<p>Total Trainees</p>
+</div>
+
+<div class="card" onclick="showTasks()">
+<h2 id="totalTasks">0</h2>
+<p>Total Tasks</p>
+</div>
+
+<div class="card" onclick="showCompleted()">
+<h2 id="completedTasks">0</h2>
+<p>Completed</p>
+</div>
+
+</div>
+
+<div class="search-box">
+
+<input
+type="text"
+id="searchTask"
+placeholder="🔍 Search Task">
+
+</div>
+<!-- Task Table -->
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Task</th>
+
+<th>Status</th>
+
+<th>Progress</th>
+
+<th>Assigned By</th>
+
+<th>Certificate</th>
+
+<th>Work Description</th>
+
+ 
+<th>Upload File</th>
+
+<th>Submitted File</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="taskTable">
+
+<!-- Loaded from trainee.js -->
+
+</tbody>
+
+</table>
+
+</div>
+
+<!-- Popup -->
+
+<div id="popup"
+style="
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+width:70%;
+max-height:80%;
+overflow:auto;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 20px rgba(0,0,0,.3);
+z-index:999;
+">
+
+<h2 id="popupTitle"></h2>
+
+<hr><br>
+
+<div id="popupContent"></div>
+
+<br>
+
+<button onclick="closePopup()">
+Close
+</button>
+
+</div>
+
+<!-- Quote -->
+
+<div class="quote">
+
+💡 "Success is the sum of small efforts repeated day after day."
+
+</div>
+
+<footer>
+
+© 2026 Tata Steel Internship Management System
+
+</footer>
+
+<script type="module" src="trainee.js"></script>
+
+</body>
+
+</html>

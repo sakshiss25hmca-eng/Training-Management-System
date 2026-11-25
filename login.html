@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tata Steel Training Management System</title>
+
+    <style>
+        body{
+            margin:0;
+            font-family:Arial,sans-serif;
+            background:#00539f;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .login-box{
+            background:white;
+            width:400px;
+            padding:30px;
+            border-radius:10px;
+            text-align:center;
+        }
+
+        img{
+            width:120px;
+            margin-bottom:15px;
+        }
+
+        input,select{
+            width:100%;
+            padding:12px;
+            margin:10px 0;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:#00539f;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <!-- Put your Tata Steel logo file here -->
+    <img src="images/tata-steel-logo.png" alt="Tata Steel Logo" class="logo">
+    <h2>Tata Steel Training Management System</h2>
+
+    <input type="text" id="username" placeholder="Username">
+
+    <input type="password" id="password" placeholder="Password">
+
+    <select id="role">
+        <option value="">Select Role</option>
+        <option value="admin">Admin</option>
+        <option value="trainer">Trainer</option>
+        <option value="trainee">Trainee</option>
+    </select>
+
+    <button onclick="login()">Login</button>
+</div>
+
+<script>
+
+function login(){
+
+    let username =
+        document.getElementById("username").value;
+
+    let password =
+        document.getElementById("password").value;
+
+    let role =
+        document.getElementById("role").value;
+
+    if(
+        username==="admin" &&
+        password==="123456" &&
+        role==="admin"
+    ){
+
+        localStorage.setItem(
+            "email",
+            "admin@tatasteel.com"
+        );
+
+        window.location.href=
+        "admin/dashboard.html";
+    }
+
+    else if(
+        username==="trainer" &&
+        password==="123456" &&
+        role==="trainer"
+    ){
+
+        localStorage.setItem(
+            "email",
+            "trainer@tatasteel.com"
+        );
+
+        window.location.href=
+        "trainer/dashboard.html";
+    }
+
+    else if(
+        role==="trainee"
+    ){
+
+        // IMPORTANT
+        // Login using the trainee email
+        // that exists in Firestore
+
+        localStorage.setItem(
+            "email",
+            username
+        );
+
+        window.location.href=
+        "trainee/dashboard.html";
+    }
+
+    else{
+
+        alert("Invalid Login");
+
+    }
+
+}
+
+</script>
+</body>
+</html> 
+
